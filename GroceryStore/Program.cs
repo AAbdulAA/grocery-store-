@@ -13,24 +13,26 @@
 //Tell the user that the product is not available
 
 
+bool isShopping = true;
+
 
 // Andra steget 
 
 List<string> availableProducts = new();
 
-availableProducts.Add(" Peanut Butter ");
-availableProducts.Add(" Grapes ");
-availableProducts.Add(" Popcorn ");
-availableProducts.Add(" Soap ");
-availableProducts.Add(" Coffe ");
-availableProducts.Add(" Bread ");
-availableProducts.Add(" Apples ");
-availableProducts.Add(" Cabbage ");
-availableProducts.Add(" Tomatos ");
-availableProducts.Add(" Milk ");
-availableProducts.Add(" Onions ");
-availableProducts.Add(" Butter ");
-availableProducts.Add(" Cheese ");
+availableProducts.Add("Peanut Butter");
+availableProducts.Add("Grapes");
+availableProducts.Add("Popcorn");
+availableProducts.Add("Soap");
+availableProducts.Add("Coffee");
+availableProducts.Add("Bread");
+availableProducts.Add("Apples");
+availableProducts.Add("Cabbage");
+availableProducts.Add("Tomatos");
+availableProducts.Add("Milk");
+availableProducts.Add("Onions");
+availableProducts.Add("Butter");
+availableProducts.Add("Cheese");
 
 
 // Fjärde steget (2)
@@ -38,15 +40,47 @@ availableProducts.Add(" Cheese ");
 List<string> shoppingCart = new();
 
 
+// 7 steget, lägg den högst upp som bool
+
+while (isShopping)
+{
+    Console.Clear();
+    WelcomeUserToStore();
+    PrintAvailablePoducts();
+    PrintShoppingCart();
+    string response = AskForInput();
+    if (response != "Done")
+    {
+        bool isAvailable = CheckAvailability(response);
+        if (isAvailable)
+        {
+            // buy product 
+            BuyProduct(response);
+        }
+        else
+        {
+            // Tell user that the product doesnt exist 
+            Console.WriteLine();
+            Console.WriteLine(" Product doesnt exist ");
+            Console.WriteLine(" Press enter to continue");
+            Console.ReadLine();
+        }
+
+    }
+    else
+    {
+        isShopping = false;
+    }
+
+}
+
+Console.WriteLine();
+Console.WriteLine(" Thanks for shopping! ");
+Console.WriteLine(" See you again soon! ");
+Console.ReadLine();
+
+
 // Definera metoderna 
-
-WelcomeUserToStore();
-PrintAvailablePoducts();    
-PrintShoppingCart();
-string response = AskForInput();
-bool isAvailable = CheckAvailability(response);
-
-
 
 //                    ------------METODER-----------
 
@@ -90,7 +124,9 @@ string AskForInput()
 {
     Console.WriteLine();
     Console.WriteLine(" What do you want to buy? ");
+    Console.WriteLine(" Or type \"Done\"  to leave the store");
     Console.WriteLine();
+
 
     Console.Write(" Reply: ");
     string input = Console.ReadLine();
@@ -111,4 +147,15 @@ bool CheckAvailability(string preoductToCheck)
         }
     }
     return isAvailable;
+}
+// 6 steget
+void BuyProduct(string productToBuy)
+{
+    // add product to shopping cart 
+
+    shoppingCart.Add(productToBuy);
+
+    // Remove Product from available products
+
+    availableProducts.Remove(productToBuy);
 }
