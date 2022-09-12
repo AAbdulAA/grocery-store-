@@ -13,6 +13,11 @@
 //Tell the user that the product is not available
 
 
+WellcomeUserToStore();
 
-
-Console.WriteLine("                                   HELLO & WELLCOME!                    "); 
+void WellcomeUserToStore()
+{
+    Console.WriteLine("-----------------");
+    Console.WriteLine("HELLO & WELLCOME!");
+    Console.WriteLine("-----------------");
+}
