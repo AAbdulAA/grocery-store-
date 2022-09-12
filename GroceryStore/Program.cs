@@ -33,19 +33,24 @@ availableProducts.Add(" Butter ");
 availableProducts.Add(" Cheese ");
 
 
-// fjärde steget (2)
+// Fjärde steget (2)
 
 List<string> shoppingCart = new();
 
 
-// definera metoderna 
+// Definera metoderna 
 
 WelcomeUserToStore();
 PrintAvailablePoducts();    
 PrintShoppingCart();
-AskforInput();
+string response = AskForInput();
+bool isAvailable = CheckAvailability(response);
 
-// Första steget  (metoder)
+
+
+//                    ------------METODER-----------
+
+// Första steget  
 void WelcomeUserToStore()
 {
     Console.WriteLine("-----------------");
@@ -81,16 +86,29 @@ void PrintShoppingCart()
 }
 
 // femte steget 
-string AskforInput()
+string AskForInput()
 {
     Console.WriteLine();
     Console.WriteLine(" What do you want to buy? ");
     Console.WriteLine();
 
-
     Console.Write(" Reply: ");
     string input = Console.ReadLine();
 
     return input;
+}
 
+// Femte steget 
+bool CheckAvailability(string preoductToCheck)
+{
+    bool isAvailable = false;
+
+    foreach(string availableProduct in availableProducts)
+    {
+        if(availableProduct== preoductToCheck)
+        {
+            isAvailable = true;
+        }
+    }
+    return isAvailable;
 }
