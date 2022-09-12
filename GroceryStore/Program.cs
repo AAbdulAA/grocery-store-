@@ -33,7 +33,7 @@ availableProducts.Add(" Butter ");
 availableProducts.Add(" Cheese ");
 
 
-// fjärde steget 
+// fjärde steget (2)
 
 List<string> shoppingCart = new();
 
@@ -43,6 +43,7 @@ List<string> shoppingCart = new();
 WelcomeUserToStore();
 PrintAvailablePoducts();    
 PrintShoppingCart();
+AskforInput();
 
 // Första steget  (metoder)
 void WelcomeUserToStore()
@@ -67,6 +68,7 @@ void PrintAvailablePoducts()
 
 
 }
+// fjärde steget (1)
 void PrintShoppingCart()
 {
     Console.WriteLine();
@@ -76,4 +78,19 @@ void PrintShoppingCart()
     {
         Console.WriteLine(productInShoppingCart);
     }
+}
+
+// femte steget 
+string AskforInput()
+{
+    Console.WriteLine();
+    Console.WriteLine(" What do you want to buy? ");
+    Console.WriteLine();
+
+
+    Console.Write(" Reply: ");
+    string input = Console.ReadLine();
+
+    return input;
+
 }
