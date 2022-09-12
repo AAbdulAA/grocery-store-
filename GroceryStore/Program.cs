@@ -13,11 +13,67 @@
 //Tell the user that the product is not available
 
 
-WellcomeUserToStore();
 
-void WellcomeUserToStore()
+// Andra steget 
+
+List<string> availableProducts = new();
+
+availableProducts.Add(" Peanut Butter ");
+availableProducts.Add(" Grapes ");
+availableProducts.Add(" Popcorn ");
+availableProducts.Add(" Soap ");
+availableProducts.Add(" Coffe ");
+availableProducts.Add(" Bread ");
+availableProducts.Add(" Apples ");
+availableProducts.Add(" Cabbage ");
+availableProducts.Add(" Tomatos ");
+availableProducts.Add(" Milk ");
+availableProducts.Add(" Onions ");
+availableProducts.Add(" Butter ");
+availableProducts.Add(" Cheese ");
+
+
+// fjärde steget 
+
+List<string> shoppingCart = new();
+
+
+// definera metoderna 
+
+WelcomeUserToStore();
+PrintAvailablePoducts();    
+PrintShoppingCart();
+
+// Första steget  (metoder)
+void WelcomeUserToStore()
 {
     Console.WriteLine("-----------------");
     Console.WriteLine("HELLO & WELLCOME!");
     Console.WriteLine("-----------------");
+}
+
+
+
+// tredje steget................ sträng för att visa user vad som finns att handla 
+void PrintAvailablePoducts()
+{
+    Console.WriteLine();
+    Console.WriteLine(" Available products");
+    Console.WriteLine();
+    foreach (string availableProduct in availableProducts)
+    {
+        Console.WriteLine(availableProduct);
+    }
+
+
+}
+void PrintShoppingCart()
+{
+    Console.WriteLine();
+    Console.WriteLine(" Shopping Cart ");
+    Console.WriteLine();
+    foreach(string productInShoppingCart in shoppingCart)
+    {
+        Console.WriteLine(productInShoppingCart);
+    }
 }
