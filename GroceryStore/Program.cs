@@ -62,7 +62,7 @@ while (isShopping)
             // Tell user that the product doesnt exist 
             Console.WriteLine();
             Console.WriteLine(" Product doesnt exist ");
-            Console.WriteLine(" Press enter to continue");
+            Console.WriteLine(" Press enter to continue"); 
             Console.ReadLine();
         }
 
